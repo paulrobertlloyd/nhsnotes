@@ -18,7 +18,7 @@ module.exports = function(eleventyConfig) {
 
   // Collections
   eleventyConfig.addCollection('post', (collection) => {
-    return collection.getFilteredByGlob('posts/*.md')
+    return collection.getFilteredByGlob('app/posts/*.md')
   })
 
 
@@ -27,8 +27,8 @@ module.exports = function(eleventyConfig) {
     htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
     dir: {
-      // Use layouts from the plugin
-      layouts: 'node_modules/@x-govuk/govuk-eleventy-plugin/layouts'
+      input: 'app',
+      layouts: '../node_modules/@x-govuk/govuk-eleventy-plugin/layouts'
     },
     pathPrefix: process.env.GITHUB_ACTIONS ? '/nhsnotes/' : '/'
   }
