@@ -1,10 +1,6 @@
 import govukEleventyPlugin from '@x-govuk/govuk-eleventy-plugin'
-import rssPlugin from "@11ty/eleventy-plugin-rss"
 
-export default function(eleventyConfig) {
-
-  eleventyConfig.addPlugin(rssPlugin);
-
+export default function (eleventyConfig) {
   // Register the plugin
   eleventyConfig.addPlugin(govukEleventyPlugin, {
     header: {
@@ -31,12 +27,14 @@ export default function(eleventyConfig) {
       }
     },
     icons: {
-      touch: 'https://frankieroberto.github.io/nhsnotes/images/icon.png',
+      touch: 'https://paulrobertlloyd.github.io/nhsnotes/images/icon.png',
       shortcut: false,
       mask: false
     },
-    feedUrl: 'posts/feed.xml',
-    url: process.env.GITHUB_ACTIONS && 'https://frankieroberto.github.io/nhsnotes/'
+    feedUrl: '/posts/feed.xml',
+    url:
+      process.env.GITHUB_ACTIONS &&
+      'https://paulrobertlloyd.github.io/nhsnotes/'
   })
 
   // Collections
@@ -48,12 +46,8 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./app/images')
 
   return {
-    dataTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
-    markdownTemplateEngine: 'njk',
     dir: {
       input: 'app',
-      layouts: '../node_modules/@x-govuk/govuk-eleventy-plugin/layouts'
     },
     pathPrefix: process.env.GITHUB_ACTIONS ? '/nhsnotes/' : '/'
   }
