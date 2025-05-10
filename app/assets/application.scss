@@ -1,0 +1,12 @@
+// Use GOV.UK Frontend components
+$_font-family: system-ui, sans-serif;
+@use "pkg:govuk-frontend/dist/govuk" with (
+$govuk-global-styles: true,
+    $govuk-new-organisation-colours: true,
+    $govuk-new-typography-scale: true,
+    $govuk-font-family: $_font-family,
+    $govuk-brand-colour: teal,
+);
+
+// Use GOV.UK Eleventy Plugin components
+@forward "pkg:@x-govuk/govuk-eleventy-plugin";

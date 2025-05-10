@@ -1,14 +1,13 @@
-import govukEleventyPlugin from '@x-govuk/govuk-eleventy-plugin'
+import { govukEleventyPlugin } from '@x-govuk/govuk-eleventy-plugin'
 
 export default function (eleventyConfig) {
   // Register the plugin
   eleventyConfig.addPlugin(govukEleventyPlugin, {
+    titleSuffix: "Frankie Roberto",
     header: {
       logotype: {
         text: 'NHS notes'
       },
-      productName: "",
-      organisationName: "Frankie Roberto"
     },
     footer: {
       copyright: {
@@ -17,6 +16,7 @@ export default function (eleventyConfig) {
       contentLicence: {
         text: "This is a personal blog. Views expressed are not necessarily those of the NHS."
       },
+      logo: false,
       meta: {
         items: [
           {
@@ -31,10 +31,13 @@ export default function (eleventyConfig) {
       shortcut: false,
       mask: false
     },
+    themeColor: 'teal',
+    stylesheets: ['/assets/application.css'],
     feedUrl: '/posts/feed.xml',
     url:
       process.env.GITHUB_ACTIONS &&
-      'https://paulrobertlloyd.github.io/nhsnotes/'
+      'https://paulrobertlloyd.github.io/nhsnotes/',
+    rebrand: true
   })
 
   // Collections
